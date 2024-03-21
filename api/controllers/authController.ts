@@ -5,13 +5,13 @@ import bcryptjs from "bcryptjs";
 
 const signUp = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const { username, email, password } = req.body;
+    const { username, email, password } = await req.body;
 
     if (!username || !email || !password) {
       next(throwError(400, "All fields are required"));
     }
 
-    const hashedPassword = bcryptjs.hash(password, 12);
+    const hashedPassword = await bcryptjs.hash(password, 12);
 
     const newUser = new User({ username, email, password: hashedPassword });
 

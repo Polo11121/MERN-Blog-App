@@ -2,6 +2,7 @@ import { Button, Navbar, TextInput } from "flowbite-react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
+import { Logo } from "@/components";
 
 const NAVIGATION_LINKS = [
   {
@@ -23,15 +24,7 @@ export const Header = () => {
 
   return (
     <Navbar className="border-b-2">
-      <Link
-        to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white hidden sm:block"
-      >
-        <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
-          Michael&apos;s
-        </span>
-        Blog
-      </Link>
+      <Logo className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white hidden sm:block" />
       <form>
         <TextInput
           type="text"

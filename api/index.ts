@@ -1,5 +1,4 @@
 import { errorHandler } from "./middlewares/errorHandler";
-import { userRoute } from "./routes/userRoute";
 import { authRoute } from "./routes/authRoute";
 import mongoose from "mongoose";
 import express from "express";
@@ -15,6 +14,8 @@ mongoose
   });
 
 const app = express();
+
+app.use(express.json());
 
 app.use("/api/auth", authRoute);
 
