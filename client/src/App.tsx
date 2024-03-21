@@ -6,8 +6,7 @@ const HomePage = lazyLoad("HomePage");
 const AboutPage = lazyLoad("AboutPage");
 const DashboardPage = lazyLoad("DashboardPage");
 const ProjectsPage = lazyLoad("ProjectsPage");
-const SignInPage = lazyLoad("SignInPage");
-const SignUpPage = lazyLoad("SignUpPage");
+const AuthenticationPage = lazyLoad("AuthenticationPage");
 
 export const App = () => (
   <BrowserRouter>
@@ -17,8 +16,8 @@ export const App = () => (
         <Route path="about" element={<AboutPage />} />
         <Route path="dashboard" element={<DashboardPage />} />
         <Route path="projects" element={<ProjectsPage />} />
-        <Route path="sign-in" element={<SignInPage />} />
-        <Route path="sign-up" element={<SignUpPage />} />
+        <Route path="sign-in" element={<AuthenticationPage />} />
+        <Route path="sign-up" element={<AuthenticationPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>

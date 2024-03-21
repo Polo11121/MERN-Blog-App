@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const useSignUp = () => {
+const signUpInitialState = {
+  username: "",
+  email: "",
+  password: "",
+};
+
+const signInInitialState = {
+  email: "",
+  password: "",
+};
+
+export const useAuth = (endpoint: "sign-up" | "sign-in") => {
   const [error, setError] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [values, setValues] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [values, setValues] = useState(
+    endpoint === "sign-up" ? signUpInitialState : signInInitialState
+  );
+
   const navigate = useNavigate();
 
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -16,8 +26,8 @@ export const useSignUp = () => {
 
   const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (!values.username || !values.email || !values.password) {
+    console.log("Object.values(val)", Object.values(values), values);
+    if (Object.values(values).some((value) => !value)) {
       setError("All fields are required");
       return;
     }
@@ -25,7 +35,7 @@ export const useSignUp = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("/api/auth/sign-up", {
+      const response = await fetch(`/api/auth/${endpoint}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
