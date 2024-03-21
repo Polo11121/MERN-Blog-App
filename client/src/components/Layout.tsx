@@ -1,6 +1,7 @@
 import { Header, LoadingScreen } from "@/components";
 import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
+import { Footer } from "@/components/Footer";
 
 export const Layout = () => (
   <div className="h-screen flex flex-col">
@@ -8,5 +9,6 @@ export const Layout = () => (
     <Suspense fallback={<LoadingScreen />}>
       <Outlet />
     </Suspense>
+    <Footer />
   </div>
 );

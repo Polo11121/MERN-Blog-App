@@ -7,7 +7,7 @@ export const SignUpPage = () => {
   const { changeHandler, submitHandler, isLoading, error } = useSignUp();
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 flex-1">
       <div className="flex p-3 mx-auto max-w-3xl flex-col md:flex-row md:items-center gap-5">
         <div className="flex-1">
           <Logo className="text-4xl dat:text-white font-bold" />
