@@ -1,0 +1,1 @@
+(MERN Blog Application - Abandoned) This GitHub repository hosts the MERN stack (MongoDB, Express.js, React, Node.js) code for a blog application, highlighting server setup, front-end rendering, and database integration. It illustrates CRUD operations, authentication, and state management.
